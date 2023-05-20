@@ -14,28 +14,44 @@
     </div>
     <h1>ユーザー登録</h1>
     <p>ユーザー情報を入力してください。</p>
+    @if($errors->any())
+        <div>
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{route('users.store')}}", method="post">
         @csrf
         <div>
             <label for="user_name">お名前<span>【必須】</span></label>
-            <input type="text" name="user_name" maxlength="60" required>
+            <!-- <input type="text" name="user_name" maxlength="60" required> -->
+             <input type="text" name="user_name">
+             
             <br><br>
 
             <label for="user_furigana">ふりがな<span>【必須】</span></label>
-            <input type="text" name="user_furigana" maxlength="60" required>
+            <!-- <input type="text" name="user_furigana" maxlength="60" required> -->
+            <input type="text" name="user_furigana">
             <br><br>
 
             <label for="user_email">メールアドレス<span>【必須】</span></label>
-            <input type="email" name="user_email" maxlength="255" required>
+            <!-- <input type="email" name="user_email" maxlength="255" required> -->
+            <input type="email" name="user_email">
             <br><br>
 
             <label for="user_age">年齢</label>
-            <input type="number" name="user_age" min="13" max="130">
+            <!-- <input type="number" name="user_age" min="13" max="130"> -->
+            <input type="number" name="user_age">
             <br><br>
 
             <label for="user_address">住所</label>
-            <input type="text" name="user_address" maxlength="255">
+            <!-- <input type="text" name="user_address" maxlength="255"> -->
+            <input type="text" name="user_address">
             <br><br>
+
         </div>
         <button type="submit" name="submit" value="insert">登録</button>
     </form>        

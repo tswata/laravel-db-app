@@ -14,7 +14,6 @@ class UserController extends Controller
     {
         $users = User::all();
         return view('users.index',compact('users'));
-        // return '<html><body><h1>Hello</h1></body></html>';
     }
 
     /**
@@ -30,6 +29,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(['user_name'=>'required']);
         $user = new User();
         $user->name = $request->input('user_name');
         $user->furigana = $request->input('user_furigana');
@@ -40,13 +40,6 @@ class UserController extends Controller
         return redirect()->route('users.index') -> with('flash_message', '登録が完了しました');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
