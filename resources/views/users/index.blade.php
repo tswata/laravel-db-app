@@ -9,11 +9,19 @@
 </head>
 
 <body>
-    <div class="sort">      
+    <div class="title">
+        <h2>会員一覧</h2>
+            @if (session('flash_message'))
+                <p>{{ session('flash_message')}}</p>
+            @endif
+    </div>    
+    <div class="sort">
+        
         <div class="btn-rapper">
             <a href="{{route('users.create')}}" class="create-btn">新規作成</a>
         </div>
     </div>
+    
     <div class="sort">
     <table class="all-column">         
         <tr>
@@ -30,12 +38,17 @@
             <tr>
             <td>{{$user->id}}</td>
             <td>{{$user->name}}</td>
-            <td>{{$user->furigana}}</td>
+            <td width="150">{{$user->furigana}}</td>
             <td>{{$user->email}}</td>
-            <td>{{$user->age}}</td>
-            <td>{{$user->address}}</td>
-            <td><a href="{{route('users.edit', $user)}}">編集</a></td>
-            <td><a href="{{route('users.destroy', $user)}}">削除</a></td>
+            <td width="35")>{{$user->age}}</td>
+            <td width="80">{{$user->address}}</td>
+            <td width="45"><a href="{{route('users.edit', $user)}}">編集</a></td>
+            <!-- <td><a href="{{route('users.destroy', $user)}}">削除</a></td> -->
+            <td width="45"><form action="{{ route('users.destroy', $user) }}" method="POST" onsubmit="return confirm('ユーザーを削除しますか？')">
+            @csrf
+            @method('DELETE')
+            <button class="btn-delete" type="submit">削除</button></td>
+            </form>
             </tr>           
         @endforeach
     </table>

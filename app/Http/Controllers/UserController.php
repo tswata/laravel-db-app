@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return '<html><body><h1>Hello</h1></body></html>';
+        return view('users.create');
     }
 
     /**
@@ -30,7 +30,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->input('user_name');
+        $user->furigana = $request->input('user_furigana');
+        $user->email = $request->input('user_email');
+        $user->age = $request->input('user_age');
+        $user->address = $request->input('user_address');
+        $user->save();
+        return redirect()->route('users.index') -> with('flash_message', '登録が完了しました');
     }
 
     /**
@@ -44,24 +51,33 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        return '<html><body><h1>Hello</h1></body></html>';
+        return view('users.edit',compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
-        //
-    }
+        $user->name = $request->input('user_name');
+        $user->furigana = $request->input('user_furigana');
+        $user->email = $request->input('user_email');
+        $user->age = $request->input('user_age');
+        $user->address = $request->input('user_address');
+        $user->save();
+        return redirect()->route('users.index') -> with('flash_message', '変更が完了しました');
+    } 
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $user)
     {
-        //
+        // $name = $user->name;
+        $user->delete();
+        return redirect()->route('users.index')->with('flash_message',"ユーザー $user->name を削除しました");
     }
 }

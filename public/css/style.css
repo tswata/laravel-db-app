@@ -1,6 +1,6 @@
 table {
     width: 100%;
-    max-width: 480px;
+    max-width: 600px;
     margin:0 auto;
     table-layout: fixed;
     border-collapse: collapse;
@@ -18,9 +18,11 @@ table th,
 table td {
     padding: 1rem;
     text-align: center;
+
 }
 
 h1,
+h2,
 p {
     text-align: center;
 }
@@ -103,4 +105,15 @@ label span {
 .return{
     display:flex;
     justify-content: center;
+}
+
+.btn-delete {
+    border: none;
+    outline: none;
+    background: transparent;
+    color:blue;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: medium;
+    padding: 0;
 }
