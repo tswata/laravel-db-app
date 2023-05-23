@@ -40,7 +40,7 @@ form div {
 }
 
 form label {
-    margin-top: 0.75rem;
+    margin-top: 0;
 }
 
 label span {
@@ -95,7 +95,7 @@ label span {
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     color: #fff;
     text-decoration: none;
-    background-color:  #6c757d;
+    background-color:  gray;
     border-radius: 4px;
     box-shadow: 1px 2px 4px rgb(0 0 0 / 15%);
     transition: 0.3s; 
@@ -116,4 +116,13 @@ label span {
     text-decoration: underline;
     font-size: medium;
     padding: 0;
+}
+
+.validation {
+    color:red;
+    margin:0;
+}
+
+.form {
+    margin-bottom: 12px;
 }

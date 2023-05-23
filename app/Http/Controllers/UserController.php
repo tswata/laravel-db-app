@@ -29,13 +29,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['user_name'=>'required']);
+        $request->validate([
+            'お名前'=>'required',
+            'ふりがな'=>'required',
+            'メールアドレス'=>'required',
+            '年齢'=>'required',
+            '住所'=>'required']);
+        // $this->validate($request,['user_name'=>'required']);
         $user = new User();
-        $user->name = $request->input('user_name');
-        $user->furigana = $request->input('user_furigana');
-        $user->email = $request->input('user_email');
-        $user->age = $request->input('user_age');
-        $user->address = $request->input('user_address');
+        $user->name = $request->input('お名前');
+        $user->furigana = $request->input('ふりがな');
+        $user->email = $request->input('メールアドレス');
+        $user->age = $request->input('年齢');
+        $user->address = $request->input('住所');
         $user->save();
         return redirect()->route('users.index') -> with('flash_message', '登録が完了しました');
     }

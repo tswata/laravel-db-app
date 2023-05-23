@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laravel-DB-App</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <!-- <link rel="stylesheet" href="../../public/css/style.css"> -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
 </head>
 
 <body>
@@ -14,43 +16,64 @@
     </div>
     <h1>ユーザー登録</h1>
     <p>ユーザー情報を入力してください。</p>
-    @if($errors->any())
-        <div>
+    <!-- @if($errors->any()) -->
+        <!-- <div>
             <ul>
                 @foreach($errors->all() as $error)
                     <li>{{$error}}</li>
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif -->
+    
     <form action="{{route('users.store')}}", method="post">
         @csrf
-        <div>
-            <label for="user_name">お名前<span>【必須】</span></label>
-            <!-- <input type="text" name="user_name" maxlength="60" required> -->
-             <input type="text" name="user_name">
-             
-            <br><br>
+    
+            <div class="form">
+                @error('お名前')
+                <p class="validation"> {{$message}}</p>  
+                @enderror
+                <label for="お名前">お名前<span>【必須】</span></label>
+                <!-- <input type="text" name="user_name" maxlength="60" required> -->
+                <input type="text" name="お名前">
+            </div>
 
-            <label for="user_furigana">ふりがな<span>【必須】</span></label>
-            <!-- <input type="text" name="user_furigana" maxlength="60" required> -->
-            <input type="text" name="user_furigana">
-            <br><br>
+            <div class="form">             
+                 @error('ふりがな')
+                <p class="validation"> {{$message}}</p>  
+                @enderror
+                <label for="ふりがな">ふりがな<span>【必須】</span></label>
+                <!-- <input type="text" name="user_furigana" maxlength="60" required> -->
+                <input type="text" name="ふりがな">
+            </div>
 
-            <label for="user_email">メールアドレス<span>【必須】</span></label>
-            <!-- <input type="email" name="user_email" maxlength="255" required> -->
-            <input type="email" name="user_email">
-            <br><br>
+            <div class="form">
+                @error('メールアドレス')
+                <p class="validation"> {{$message}}</p>    
+                @enderror
+                <label for="メールアドレス">メールアドレス<span>【必須】</span></label>
+                <!-- <input type="email" name="user_email" maxlength="255" required> -->
+                <input type="email" name="メールアドレス">
+            </div>
 
-            <label for="user_age">年齢</label>
-            <!-- <input type="number" name="user_age" min="13" max="130"> -->
-            <input type="number" name="user_age">
-            <br><br>
 
-            <label for="user_address">住所</label>
-            <!-- <input type="text" name="user_address" maxlength="255"> -->
-            <input type="text" name="user_address">
-            <br><br>
+            <div class="form">
+                @error('年齢')
+                <p class="validation"> {{$message}}</p>  
+                @enderror
+                <label for="年齢">年齢</label>
+                <!-- <input type="number" name="user_age" min="13" max="130"> -->
+                <input type="number" name="年齢">
+            </div>
+
+            <div class="form">
+                @error('住所')
+                <p class="validation"> {{$message}}</p>  
+                @enderror
+                <label for="住所">住所</label>
+                <!-- <input type="text" name="user_address" maxlength="255"> -->
+                <input type="text" name="住所">
+            </div>
 
         </div>
         <button type="submit" name="submit" value="insert">登録</button>
