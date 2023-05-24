@@ -7,7 +7,7 @@
     <title>Laravel-DB-App</title>
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- <link rel="stylesheet" href="../../public/css/style.css"> -->
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
 </head>
 
 <body>
@@ -35,7 +35,7 @@
                 @enderror
                 <label for="お名前">お名前<span>【必須】</span></label>
                 <!-- <input type="text" name="user_name" maxlength="60" required> -->
-                <input type="text" name="お名前">
+                <input type="text" name="お名前" value="{{old('お名前')}}">
             </div>
 
             <div class="form">             
@@ -44,7 +44,7 @@
                 @enderror
                 <label for="ふりがな">ふりがな<span>【必須】</span></label>
                 <!-- <input type="text" name="user_furigana" maxlength="60" required> -->
-                <input type="text" name="ふりがな">
+                <input type="text" name="ふりがな" value="{{old('ふりがな')}}">
             </div>
 
             <div class="form">
@@ -53,7 +53,7 @@
                 @enderror
                 <label for="メールアドレス">メールアドレス<span>【必須】</span></label>
                 <!-- <input type="email" name="user_email" maxlength="255" required> -->
-                <input type="email" name="メールアドレス">
+                <input type="email" name="メールアドレス" value="{{old('メールアドレス')}}">
             </div>
 
 
@@ -63,7 +63,7 @@
                 @enderror
                 <label for="年齢">年齢</label>
                 <!-- <input type="number" name="user_age" min="13" max="130"> -->
-                <input type="number" name="年齢">
+                <input type="number" name="年齢" value="{{old('年齢')}}">
             </div>
 
             <div class="form">
@@ -72,10 +72,9 @@
                 @enderror
                 <label for="住所">住所</label>
                 <!-- <input type="text" name="user_address" maxlength="255"> -->
-                <input type="text" name="住所">
+                <input type="text" name="住所" value="{{old('住所')}}">
             </div>
 
-        </div>
         <button type="submit" name="submit" value="insert">登録</button>
     </form>        
 </body>

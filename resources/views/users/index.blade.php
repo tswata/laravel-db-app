@@ -13,8 +13,9 @@
         <h2>会員一覧</h2>
             @if (session('flash_message'))
                 <p>{{ session('flash_message')}}</p>
-            @endif
-    </div>    
+            @endif    
+            <h3>{{$greeting}}</h3>  
+    </div>  
     <div class="sort">
         
         <div class="btn-rapper">

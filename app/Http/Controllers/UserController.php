@@ -32,8 +32,8 @@ class UserController extends Controller
         $request->validate([
             'お名前'=>'required',
             'ふりがな'=>'required',
-            'メールアドレス'=>'required',
-            '年齢'=>'required',
+            'メールアドレス'=>'required|email',
+            '年齢'=>'required|between:0,100|numeric',
             '住所'=>'required']);
         // $this->validate($request,['user_name'=>'required']);
         $user = new User();
@@ -60,11 +60,17 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->name = $request->input('user_name');
-        $user->furigana = $request->input('user_furigana');
-        $user->email = $request->input('user_email');
-        $user->age = $request->input('user_age');
-        $user->address = $request->input('user_address');
+        $request->validate([
+            'お名前'=>'required',
+            'ふりがな'=>'required',
+            'メールアドレス'=>'required|email',
+            '年齢'=>'required|between:0,100|numeric',
+            '住所'=>'required']);
+        $user->name = $request->input('お名前');
+        $user->furigana = $request->input('ふりがな');
+        $user->email = $request->input('メールアドレス');
+        $user->age = $request->input('年齢');
+        $user->address = $request->input('住所');
         $user->save();
         return redirect()->route('users.index') -> with('flash_message', '変更が完了しました');
     } 

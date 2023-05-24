@@ -23,6 +23,7 @@ table td {
 
 h1,
 h2,
+h3,
 p {
     text-align: center;
 }
@@ -126,3 +127,4 @@ label span {
 .form {
     margin-bottom: 12px;
 }
+
