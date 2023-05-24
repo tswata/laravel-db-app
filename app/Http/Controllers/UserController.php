@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -27,14 +28,14 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $request->validate([
-            'お名前'=>'required',
-            'ふりがな'=>'required',
-            'メールアドレス'=>'required|email',
-            '年齢'=>'required|between:0,100|numeric',
-            '住所'=>'required']);
+        // $request->validate([
+        //     'お名前'=>'required',
+        //     'ふりがな'=>'required',
+        //     'メールアドレス'=>'required|email',
+        //     '年齢'=>'required|between:0,100|numeric',
+        //     '住所'=>'required']);
         // $this->validate($request,['user_name'=>'required']);
         $user = new User();
         $user->name = $request->input('お名前');
