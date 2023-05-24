@@ -59,14 +59,14 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(FormRequest $request, User $user)
     {
-        $request->validate([
-            'お名前'=>'required',
-            'ふりがな'=>'required',
-            'メールアドレス'=>'required|email',
-            '年齢'=>'required|between:0,100|numeric',
-            '住所'=>'required']);
+        // $request->validate([
+        //     'お名前'=>'required',
+        //     'ふりがな'=>'required',
+        //     'メールアドレス'=>'required|email',
+        //     '年齢'=>'required|between:0,100|numeric',
+        //     '住所'=>'required']);
         $user->name = $request->input('お名前');
         $user->furigana = $request->input('ふりがな');
         $user->email = $request->input('メールアドレス');
