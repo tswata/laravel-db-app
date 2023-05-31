@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
+// use Validator;
 
 class UserController extends Controller
 {
@@ -36,7 +37,19 @@ class UserController extends Controller
         //     'メールアドレス'=>'required|email',
         //     '年齢'=>'required|between:0,100|numeric',
         //     '住所'=>'required']);
+
         // $this->validate($request,['user_name'=>'required']);
+
+        // $validator = Validator::make($request->all(),[
+        // 'お名前'=>'required',
+        // 'ふりがな'=>'required',
+        // 'メールアドレス'=>'required|email',
+        // '年齢'=>'required|between:0,100|numeric',
+        // '住所'=>'required']);
+        // if ($validator->fails()) {
+        //     return redirect()->route('users.create')->withErrors($validator)->withInput();
+        // }else{
+
         $user = new User();
         $user->name = $request->input('お名前');
         $user->furigana = $request->input('ふりがな');
@@ -45,6 +58,7 @@ class UserController extends Controller
         $user->address = $request->input('住所');
         $user->save();
         return redirect()->route('users.index') -> with('flash_message', '登録が完了しました');
+        // }
     }
 
 
@@ -59,10 +73,10 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(FormRequest $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
         // $request->validate([
-        //     'お名前'=>'required',
+        //     'お名前'=>'required',q
         //     'ふりがな'=>'required',
         //     'メールアドレス'=>'required|email',
         //     '年齢'=>'required|between:0,100|numeric',
