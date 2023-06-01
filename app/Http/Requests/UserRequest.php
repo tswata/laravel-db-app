@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Requests\UserRequest;
+use App\Rules\MyRule;
 
 class UserRequest extends FormRequest
 {
@@ -27,18 +28,20 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
        {      
-
+    
         return [
             'お名前'=>'required',
             'ふりがな'=>'required',
             'メールアドレス'=>'required|email',
-            '年齢'=>'required|between:0,100|numeric|user',
+            '年齢'=>['required','between:0,100', 'numeric', new MyRule(5)],
             '住所'=>'required'
         ];
     }
 
     public function messages() {
-        return ['お名前.required' => 'お名前入れてね','年齢.user' => '年齢は偶数のみ受け付けます'];
+        // return ['お名前.required' => 'お名前入れてね','年齢.user' => '年齢は偶数のみ受け付けます'];
+        return ['お名前.required' => 'お名前入れてね'];
+
 
     }
 }
