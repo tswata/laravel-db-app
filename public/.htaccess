@@ -4,6 +4,7 @@
     </IfModule>
 
     RewriteEngine On
+    RewriteBase /laravel-db-app/
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
