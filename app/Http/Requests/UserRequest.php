@@ -33,7 +33,8 @@ class UserRequest extends FormRequest
             'お名前'=>'required',
             'ふりがな'=>'required',
             'メールアドレス'=>'required|email',
-            '年齢'=>['required','between:0,100', 'numeric', new MyRule(5)],
+            // '年齢'=>['required','between:0,100', 'numeric', new MyRule(5)],
+            '年齢'=>['required','between:0,100', 'numeric'],
             '住所'=>'required'
         ];
     }
