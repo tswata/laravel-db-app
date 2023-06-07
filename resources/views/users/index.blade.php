@@ -40,7 +40,7 @@
             <td>{{$user->id}}</td>
             <td>{{$user->name}}</td>
             <td width="150">{{$user->furigana}}</td>
-            <td>{{$user->email}}</td>
+            <td><middleware>{{$user->email}}</middleware></td>
             <td width="35")>{{$user->age}}</td>
             <td width="80">{{$user->address}}</td>
             <td width="45"><a href="{{route('users.edit', $user)}}">編集</a></td>
