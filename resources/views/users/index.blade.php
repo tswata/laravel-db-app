@@ -15,6 +15,8 @@
                 <p>{{ session('flash_message')}}</p>
             @endif    
             <h3>{{$greeting}}</h3>  
+
+            <h4>{{$msg}}</h4>
     </div>  
     <div class="sort">
         

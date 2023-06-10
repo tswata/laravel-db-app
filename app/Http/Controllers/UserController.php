@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
 // use Validator;
@@ -15,7 +16,13 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $users = User::all();
-        return view('users.index',compact('users'));
+        if ($request->hasCookie('msg'))
+        {
+            $msg = '直近に登録されたお名前は' . $request->cookie('msg');
+        }else{
+            $msg = "直近に登録はありません";
+        }
+            return view('users.index',compact('users','msg'));
     }
 
     /**
@@ -57,8 +64,10 @@ class UserController extends Controller
         $user->age = $request->input('年齢');
         $user->address = $request->input('住所');
         $user->save();
-        return redirect()->route('users.index') -> with('flash_message', '登録が完了しました');
-        // }
+        $response = redirect()->route('users.index') -> with('flash_message', '登録が完了しました');
+        $response->cookie('msg', $user->name, 1);
+        return $response;
+        // return redirect()->route('users.index') -> with('flash_message', '登録が完了しました');
     }
 
 
