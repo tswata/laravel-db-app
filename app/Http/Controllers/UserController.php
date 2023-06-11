@@ -64,10 +64,11 @@ class UserController extends Controller
         $user->age = $request->input('年齢');
         $user->address = $request->input('住所');
         $user->save();
-        $response = redirect()->route('users.index') -> with('flash_message', '登録が完了しました');
-        $response->cookie('msg', $user->name, 1);
-        return $response;
+        // $response = redirect()->route('users.index') -> with('flash_message', '登録が完了しました');
+        // $response->cookie('msg', $user->name, 1);
+        // return $response;
         // return redirect()->route('users.index') -> with('flash_message', '登録が完了しました');
+        return redirect()->route('users.index') -> with('flash_message', '登録が完了しました') ->withCookie('msg', $user->name, 1);
     }
 
 
