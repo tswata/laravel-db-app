@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel-DB-App</title>
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <!-- <link rel="stylesheet" href="../../public/css/style.css"> -->
-    <!-- <link rel="stylesheet" href="../css/style.css"> -->
-</head>
-
-<body>
-    <div class="return">
+@section('title')
+<div class="return">
         <a href="{{route('users.index')}}">戻る</a>
     </div>
     <h1>ユーザー登録</h1>
+@endsection
+
+@section('content')    
     <p>ユーザー情報を入力してください。</p>
     <!-- @if($errors->any()) -->
         <!-- <div>
@@ -76,6 +69,5 @@
             </div>
 
         <button type="submit" name="submit" value="insert">登録</button>
-    </form>        
-</body>
-</html>
+    </form>   
+@endsection   

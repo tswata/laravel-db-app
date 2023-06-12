@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel-DB-App</title>
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
-</head>
-
-<body>
+@section('title')
     <div class="return">
         <a href="{{route('users.index')}}">戻る</a>
     </div>
-    <h2>ユーザー更新</h2>
+    <div class="title">
+        <h1>ユーザー更新</h1>
+    </div>
+@endsection
+
+@section('content')    
     <p>更新する内容を入力してください。</p>
     <br>
     <form action="{{route('users.update', $user)}}" method="post">
@@ -86,6 +83,5 @@
             </div>
 
         <button type="submit" name="submit" value="update">更新</button>
-    </form>        
-</body>
-</html>
+    </form>  
+@endsection      
