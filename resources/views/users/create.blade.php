@@ -1,9 +1,6 @@
 @extends('layouts')
 
 @section('title')
-<div class="return">
-        <a href="{{route('users.index')}}">戻る</a>
-    </div>
     <h1>ユーザー登録</h1>
 @endsection
 
