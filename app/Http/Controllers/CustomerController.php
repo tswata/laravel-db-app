@@ -4,25 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Models\User;
-use App\Http\Requests\UserRequest;
+use App\Models\Customer;
+use App\Http\Requests\CustomerRequest;
 // use Validator;
 
-class UserController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        $users = User::all();
+        $customers = Customer::all();
         if ($request->hasCookie('msg'))
         {
             $msg = '直近に登録されたお名前は' . $request->cookie('msg');
         }else{
             $msg = "直近に登録はありません";
         }
-            return view('users.index',compact('users','msg'));
+            return view('customers.index',compact('customers','msg'));
     }
 
     /**
@@ -30,13 +30,13 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('customers.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserRequest $request)
+    public function store(CustomerRequest $request)
     {
         // $request->validate([
         //     'お名前'=>'required',
@@ -57,33 +57,33 @@ class UserController extends Controller
         //     return redirect()->route('users.create')->withErrors($validator)->withInput();
         // }else{
 
-        $user = new User();
-        $user->name = $request->input('お名前');
-        $user->furigana = $request->input('ふりがな');
-        $user->email = $request->input('メールアドレス');
-        $user->age = $request->input('年齢');
-        $user->address = $request->input('住所');
-        $user->save();
+        $customer = new Customer();
+        $customer->name = $request->input('お名前');
+        $customer->furigana = $request->input('ふりがな');
+        $customer->email = $request->input('メールアドレス');
+        $customer->age = $request->input('年齢');
+        $customer->address = $request->input('住所');
+        $customer->save();
         // $response = redirect()->route('users.index') -> with('flash_message', '登録が完了しました');
         // $response->cookie('msg', $user->name, 1);
         // return $response;
         // return redirect()->route('users.index') -> with('flash_message', '登録が完了しました');
-        return redirect()->route('users.index') -> with('flash_message', '登録が完了しました') ->withCookie('msg', $user->name, 1);
+        return redirect()->route('customers.index') -> with('flash_message', '登録が完了しました') ->withCookie('msg', $customer->name, 1);
     }
 
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(Customer $customer)
     {
-        return view('users.edit',compact('user'));
+        return view('customers.edit',compact('customer'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserRequest $request, User $user)
+    public function update(CustomerRequest $request, Customer $customer)
     {
         // $request->validate([
         //     'お名前'=>'required',q
@@ -91,23 +91,23 @@ class UserController extends Controller
         //     'メールアドレス'=>'required|email',
         //     '年齢'=>'required|between:0,100|numeric',
         //     '住所'=>'required']);
-        $user->name = $request->input('お名前');
-        $user->furigana = $request->input('ふりがな');
-        $user->email = $request->input('メールアドレス');
-        $user->age = $request->input('年齢');
-        $user->address = $request->input('住所');
-        $user->save();
-        return redirect()->route('users.index') -> with('flash_message', '変更が完了しました');
+        $customer->name = $request->input('お名前');
+        $customer->furigana = $request->input('ふりがな');
+        $customer->email = $request->input('メールアドレス');
+        $customer->age = $request->input('年齢');
+        $customer->address = $request->input('住所');
+        $customer->save();
+        return redirect()->route('customers.index') -> with('flash_message', '変更が完了しました');
     } 
 
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(Customer $customer)
     {
         // $name = $user->name;
-        $user->delete();
-        return redirect()->route('users.index')->with('flash_message',"ユーザー $user->name を削除しました");
+        $customer->delete();
+        return redirect()->route('customers.index')->with('flash_message',"ユーザー $customer->name を削除しました");
     }
 }

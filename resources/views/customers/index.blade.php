@@ -31,7 +31,7 @@
     <div class="sort">
         
         <div class="btn-rapper">
-            <a href="{{route('users.create')}}" class="create-btn">新規作成</a>
+            <a href="{{route('customers.create')}}" class="create-btn">新規作成</a>
         </div>
     </div>
 
@@ -47,23 +47,23 @@
                 <th>編集</th>
                 <th> 削除</th>
             </tr>
-            @foreach ($users as $user) 
+            @each('components.each', $customers, 'customer')
+            <!-- @foreach ($customers as $customer) 
                 <tr>
-                <td width="35">{{$user->id}}</td>
-                <td width="120">{{$user->name}}</td>
-                <td width="150">{{$user->furigana}}</td>
-                <td width="150"><middleware>{{$user->email}}</middleware></td>
-                <td width="50")>{{$user->age}}</td>
-                <td width="70">{{$user->address}}</td>
-                <td width="50"><a href="{{route('users.edit', $user)}}">編集</a></td>
-                <!-- <td><a href="{{route('users.destroy', $user)}}">削除</a></td> -->
-                <td width="55"><form action="{{ route('users.destroy', $user) }}" method="POST" onsubmit="return confirm('ユーザーを削除しますか？')">
+                <td width="35">{{$customer->id}}</td>
+                <td width="120">{{$customer->name}}</td>
+                <td width="150">{{$customer->furigana}}</td>
+                <td width="150"><middleware>{{$customer->email}}</middleware></td>
+                <td width="50")>{{$customer->age}}</td>
+                <td width="70">{{$customer->address}}</td>
+                <td width="50"><a href="{{route('customers.edit', $customer)}}">編集</a></td>
+                <td width="55"><form action="{{ route('customers.destroy', $customer) }}" method="POST" onsubmit="return confirm('ユーザーを削除しますか？')">
                 @csrf
                 @method('DELETE')
                 <button class="btn-delete" type="submit">削除</button></td>
                 </form>
                 </tr>           
-            @endforeach
+            @endforeach -->
         </table>
     </div>
 @endsection

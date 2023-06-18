@@ -21,7 +21,7 @@ class GreetingServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('users.index',GreetingComposer::class);
+        View::composer('customers.index',GreetingComposer::class);
         // {       
         // $hour = date('H');
         // if ( $hour < 3 || $hour > 18) {
