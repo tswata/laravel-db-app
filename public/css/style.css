@@ -1,7 +1,7 @@
  table {
     width: 100%;
     max-width: 600px;
-    margin:0 auto 30 auto;
+    margin:0 auto 30;
     /* table-layout: fixed; */
     table-layout: auto;
     border-collapse: collapse;
@@ -21,6 +21,10 @@ table td {
     padding: 0.5rem;
     text-align: center;
 } 
+
+body {
+    background-color: #fff;
+}
 
 h1,
 h2,
