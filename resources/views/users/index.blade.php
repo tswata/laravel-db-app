@@ -52,12 +52,12 @@
                 <td width="35">{{$user->id}}</td>
                 <td width="120">{{$user->name}}</td>
                 <td width="150">{{$user->furigana}}</td>
-                <td width="200"><middleware>{{$user->email}}</middleware></td>
-                <td width="35")>{{$user->age}}</td>
+                <td width="150"><middleware>{{$user->email}}</middleware></td>
+                <td width="50")>{{$user->age}}</td>
                 <td width="70">{{$user->address}}</td>
-                <td width="45"><a href="{{route('users.edit', $user)}}">編集</a></td>
+                <td width="50"><a href="{{route('users.edit', $user)}}">編集</a></td>
                 <!-- <td><a href="{{route('users.destroy', $user)}}">削除</a></td> -->
-                <td style="width:45px;"><form action="{{ route('users.destroy', $user) }}" method="POST" onsubmit="return confirm('ユーザーを削除しますか？')">
+                <td width="55"><form action="{{ route('users.destroy', $user) }}" method="POST" onsubmit="return confirm('ユーザーを削除しますか？')">
                 @csrf
                 @method('DELETE')
                 <button class="btn-delete" type="submit">削除</button></td>
