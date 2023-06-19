@@ -15,18 +15,19 @@
 
 @section('title')
     <div class="title">
-        <h1>会員一覧</h1>
+        <h2>会員一覧</h2>
     </div>
 @endsection
+
 
 @section('content')
     <div class="title">
             @if (session('flash_message'))
                 <p>{{ session('flash_message')}}</p>
             @endif    
-        <h3>{{$greeting}}</h3>  
+        <h4>{{$greeting}}</h4>  
 
-        <h4>{{$msg}}</h4>
+        <h5>{{$msg}}</h5>
     </div>  
     <div class="sort">
         

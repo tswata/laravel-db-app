@@ -11,6 +11,8 @@
 
 <body>
     @include('components.header')
+    <br>
+    <br>
     
     @yield('title')
 

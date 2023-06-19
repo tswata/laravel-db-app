@@ -3,7 +3,7 @@
 @section('title')
     
     <div class="title">
-        <h1>ユーザー更新</h1>
+        <h2>ユーザー更新</h2>
     </div>
 @endsection
 

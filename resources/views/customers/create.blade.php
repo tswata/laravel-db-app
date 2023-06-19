@@ -1,7 +1,7 @@
 @extends('layouts')
 
 @section('title')
-    <h1>ユーザー登録</h1>
+    <h2>ユーザー登録</h2>
 @endsection
 
 @section('content')    
