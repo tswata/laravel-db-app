@@ -8,7 +8,6 @@ use App\Models\Customer;
 use App\Http\Requests\CustomerRequest;
 use Illuminate\Support\Facades\Auth;
 
-
 // use Validator;
 
 class CustomerController extends Controller
