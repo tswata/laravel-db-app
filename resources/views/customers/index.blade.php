@@ -29,7 +29,6 @@
 
         <h5>{{$msg}}</h5>
     </div>  
-<<<<<<< HEAD
 
     <div class="container h-100">
         @if ($errors->any())
@@ -68,7 +67,7 @@
                              <h4 class="card-title ms-1 mb-0">{{ $comment->comment }}</h4>
                              <div class="d-flex align-items-center">                                 
                                  <div class="dropdown">
-                                     <a href="#" class="dropdown-toggle px-1 fs-5 fw-bold link-dark text-decoration-none" id="dropdownCommentMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">︙</a>
+                                     <a href="#" class="dropdown-toggle px-1 fs-5 fw-bold link-dark text-decoration-none menu-icon" id="dropdownCommentMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">︙</a>
                                      <ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="dropdownCommentMenuLink">
                                          <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editCommentModal{{ $comment->id }}">編集</a></li>                                   
                                          <div class="dropdown-divider"></div>
@@ -84,8 +83,6 @@
 
 
 
-=======
->>>>>>> parent of a9799a2 (コメントの表示)
     <div class="sort">
         
         <div class="btn-rapper">

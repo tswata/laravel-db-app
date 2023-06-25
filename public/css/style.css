@@ -153,3 +153,6 @@ label span {
     margin-bottom: 12px;
 }
 
+.menu-icon::after {
+    display: none;
+}

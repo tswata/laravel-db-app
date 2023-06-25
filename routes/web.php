@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Middleware\CustomerMiddleware;
 use App\Http\Middleware\HrefMiddleware;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('comments', CommentController::class)->only(['store', 'update', 'destroy'])->middleware('auth');
+Route::resource('comments',CommentController::class)->only(['store', 'update', 'destroy'])->middleware('auth');
 
