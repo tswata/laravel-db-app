@@ -29,6 +29,7 @@
 
         <h5>{{$msg}}</h5>
     </div>  
+<<<<<<< HEAD
 
     <div class="container h-100">
         @if ($errors->any())
@@ -83,6 +84,8 @@
 
 
 
+=======
+>>>>>>> parent of a9799a2 (コメントの表示)
     <div class="sort">
         
         <div class="btn-rapper">
