@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Customer;
 use App\Http\Requests\CustomerRequest;
+use Illuminate\Support\Facades\Auth;
+
 // use Validator;
 
 class CustomerController extends Controller
@@ -22,7 +24,10 @@ class CustomerController extends Controller
         }else{
             $msg = "直近に登録はありません";
         }
-            return view('customers.index',compact('customers','msg'));
+
+        $comments = Auth::user()->comments;
+        // return view('customers.index',compact('comments'));
+        return view('customers.index',compact('customers','msg','comments'));
     }
 
     /**
