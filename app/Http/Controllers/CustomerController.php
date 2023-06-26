@@ -26,8 +26,9 @@ class CustomerController extends Controller
         }
 
         $comments = Auth::user()->comments;
+        $user_name = Auth::user()->name;
         // return view('customers.index',compact('comments'));
-        return view('customers.index',compact('customers','msg','comments'));
+        return view('customers.index',compact('customers','msg','comments','user_name'));
     }
 
     /**

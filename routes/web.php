@@ -21,7 +21,7 @@ use App\Http\Controllers\CommentController;
 //     return view('welcome');
 // });
 
-Route::get('/', [CustomerController::class, 'index']) -> middleware(HrefMiddleware::class);;
+Route::get('/', [CustomerController::class, 'index']) -> middleware(HrefMiddleware::class)->middleware('auth');
 
 // Route::resource('users', UserController::class);
 Route::resources(['customers'=> CustomerController::class]);

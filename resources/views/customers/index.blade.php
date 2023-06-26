@@ -81,7 +81,7 @@
              @endforeach                       
          </div>            
 
-
+         @include('modals.show_comment')
 
     <div class="sort">
         
@@ -98,6 +98,7 @@
                 <th>ふりがな</th>
                 <th>メールアドレス</th>
                 <th>年齢</th>
+                <th>コメント</th>
                 <th>住所</th>
                 <th>編集</th>
                 <th> 削除</th>

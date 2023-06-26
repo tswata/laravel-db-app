@@ -1,9 +1,17 @@
 <tr>
 <td width="35">{{$customer->id}}</td>
 <td width="120">{{$customer->name}}</td>
-<td width="150">{{$customer->furigana}}</td>
-<td width="150"><middleware>{{$customer->email}}</middleware></td>
+<td width="170">{{$customer->furigana}}</td>
+<td width="170"><middleware>{{$customer->email}}</middleware></td>
 <td width="50")>{{$customer->age}}</td>
+
+
+<td width="100">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#showCommentModal">
+                    コメント
+             </a>
+</td>
+
 <td width="70">{{$customer->address}}</td>
 <td width="50"><a href="{{route('customers.edit', $customer)}}">編集</a></td>
 <!-- <td><a href="{{route('customers.destroy', $customer)}}">削除</a></td> -->
